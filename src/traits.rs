@@ -45,3 +45,15 @@ pub trait Stack<T>: Deque<T> {
         self.remove_last()
     }
 }
+
+/// 重複なし、順序なしの集合。UはunorderedのU。
+pub trait USet<T> {
+    /// 集合の要素数を返す
+    fn size(&self) -> usize;
+    /// `v`が集合に入っていなければ追加する。`v`が集合に追加されたら`true`、そうでなければ`false`を返す
+    fn add(&mut self, v: T) -> bool;
+    /// 集合から`v`と同じ要素を削除する。削除されたらその要素を、同じ要素が見つからなければ`None`を返す
+    fn remove(&mut self, v: &T) -> Option<T>;
+    /// `v`と同じ要素を探す。見つかったらその要素を、見つからなければ`None`を返す
+    fn find(&self, v: &T) -> Option<T>;
+}
