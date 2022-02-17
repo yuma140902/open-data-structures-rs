@@ -2,9 +2,9 @@ pub trait List<T> {
     /// リストの長さを返す
     fn size(&self) -> usize;
     /// リストの`i`番目の要素を返す
-    fn get(&self, i: usize) -> Option<T>;
+    fn get(&self, i: usize) -> Option<&T>;
     /// リストの`i`番目の要素を`v`にする
-    fn set(&mut self, i: usize, v: T) -> Option<T>;
+    fn set(&mut self, i: usize, v: T) -> Option<&T>;
     /// `v`を`i`番目の要素として追加し、もとの`i`番目以降の要素を後ろにずらす
     fn add(&mut self, i: usize, v: T);
     /// `i`番目の要素を削除し、もとの`i+1`以降の要素を前にずらす
@@ -55,7 +55,7 @@ pub trait USet<T> {
     /// 集合から`v`と同じ要素を削除する。削除されたらその要素を、同じ要素が見つからなければ`None`を返す
     fn remove(&mut self, v: &T) -> Option<T>;
     /// `v`と同じ要素を探す。見つかったらその要素を、見つからなければ`None`を返す
-    fn find(&self, v: &T) -> Option<T>;
+    fn find(&self, v: &T) -> Option<&T>;
 }
 
 /// ソートされた要素の集合。SはsortedのS。
@@ -67,5 +67,5 @@ pub trait SSet<T> {
     /// 集合から`v`と同じ要素を削除する。削除されたらその要素を、同じ要素が見つからなければ`None`を返す
     fn remove(&mut self, v: &T) -> Option<T>;
     /// `w` ≧ `v`を満たす最小の要素`w`を見つける。`w`が存在すれば`Some(w)`を返し、存在しなけれ`None`を返す
-    fn find(&self, v: &T) -> Option<T>;
+    fn find(&self, v: &T) -> Option<&T>;
 }
