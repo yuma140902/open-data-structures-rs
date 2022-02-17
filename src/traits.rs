@@ -4,7 +4,7 @@ pub trait List<T> {
     /// リストの`i`番目の要素を返す
     fn get(&self, i: usize) -> Option<&T>;
     /// リストの`i`番目の要素を`v`にする
-    fn set(&mut self, i: usize, v: T) -> Option<&T>;
+    fn set(&mut self, i: usize, v: T) -> Option<T>;
     /// `v`を`i`番目の要素として追加し、もとの`i`番目以降の要素を後ろにずらす
     fn add(&mut self, i: usize, v: T);
     /// `i`番目の要素を削除し、もとの`i+1`以降の要素を前にずらす
