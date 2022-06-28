@@ -1,5 +1,5 @@
+pub mod array;
 pub mod traits;
-
 #[cfg(test)]
 mod tests {
     #[test]
